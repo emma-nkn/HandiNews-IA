@@ -1,0 +1,21 @@
+.videaoActive {
+  border: 2px solid #4f46e5;
+  width: 100%;
+  height: 60%;
+  aspect-ratio: 16 / 9;
+  margin-top: 20px;
+  border-radius: 14px;
+  overflow: hidden; /* Pour que l'iframe ne dépasse pas des bords arrondis */
+}
+
+.videaoActive iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.custom-card {
+}
+
+/* .cardMiniature{
+  border: 2px solid #4f46e5;
+} */

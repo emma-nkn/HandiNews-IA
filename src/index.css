@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --color-primary: #1e40af;
+  --color-secondary: #ff7f11;
+  --color-accent: #87b42d;
+
+  /* On lie les variables pour DaisyUI */
+  --color-p: var(--color-primary);
+  --color-s: var(--color-secondary);
+  --color-a: var(--color-accent);
+}
