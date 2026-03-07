@@ -10,17 +10,14 @@ const Contact = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState("idle"); // idle, sending, success, error
+  const [status, setStatus] = useState("idle");
 
-  // Fonction pour mettre à jour les données quand on tape au clavier
   const handleChange = (e) => {
-    // On utilise l'id de l'input pour savoir quel champ modifier
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Fonction pour envoyer les données au serveur
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Empêche la page de se recharger
+    e.preventDefault();
     setStatus("sending");
 
     try {
@@ -37,7 +34,7 @@ const Contact = () => {
           email: "",
           subject: "Projet Innovation",
           message: "",
-        }); // Vide le formulaire
+        });
       } else {
         setStatus("error");
       }
@@ -56,7 +53,7 @@ const Contact = () => {
             alt="Innovation Lab"
             className="w-full h-full object-cover"
           />
-          {/* Overlay pour assurer la lisibilité du texte (mélange de votre bleu) */}
+
           <div className="absolute inset-0 bg-[#1e40af]/80 mix-blend-multiply"></div>
         </div>
 
@@ -84,13 +81,12 @@ const Contact = () => {
             </ul>
           </nav>
 
-          {/* TITRE H2 */}
           <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-center">
             Contactez-<span className="text-[#ff7f11]">nous</span>
           </h2>
         </div>
 
-        {/* LE DESIGN DE FORME (SVG Shape Divider) */}
+        {/* LE DESIGN DE FORME */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] transform rotate-180">
           <svg
             viewBox="0 0 1200 120"
@@ -145,7 +141,7 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* DIV DE DROITE : FORMULAIRE (7 colonnes sur 12 + 1 gap) */}
+          {/* DIV DE DROITE */}
           <div className="lg:col-span-7 bg-white p-8 md:p-8 rounded-[0.5rem] shadow-xl border border-slate-100">
             <div className="mb-10">
               <h2 className="text-3xl font-black text-[#1e40af] mb-4">
@@ -156,7 +152,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                   type="text"
@@ -198,7 +194,6 @@ const Contact = () => {
                 className="w-full px-4 py-3 bg-slate-50 border-2 border-transparent focus:border-[#1e40af] focus:bg-white rounded-xl outline-none transition-all resize-none"
               ></textarea>
 
-              {/* LE BOUTON AVEC BORDURE NOIRE (comme demandé précédemment) */}
               <button
                 type="submit"
                 disabled={status === "sending"}

@@ -44,7 +44,7 @@ const Partenaires = [
 
 const Accueil = () => {
   return (
-    <div className="flex flex-col w-full">
+    <main className="flex flex-col w-full">
       {/* SECTION HERO -*/}
       <section className="relative bg-[#1e40af] text-primary-content py-20 px-4 lg:px-20 overflow-hidden">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-22">
@@ -227,7 +227,7 @@ const Accueil = () => {
                     </p>
                     <div className="card-actions justify-end mt-4 pt-4 border-t border-slate-100">
                       <button className="btn btn-ghost btn-sm gap-2 text-[#1e40af] lowercase font-normal italic">
-                        Voir le projet <ExternalLink size={14} />
+                        Voir le site <ExternalLink size={14} />
                       </button>
                     </div>
                   </div>
@@ -248,7 +248,10 @@ const Accueil = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Carte Actualités */}
-          <div className="card bg-base-100 shadow-xl border-t-8 border-[#1e40af] hover:shadow-2xl transition-all cursor-pointer group">
+          <a
+            href="/actualites"
+            className="card bg-base-100 shadow-xl border-t-8 border-[#1e40af] hover:shadow-2xl transition-all cursor-pointer group"
+          >
             <div className="card-body">
               <h3 className="card-title text-2xl font-bold group-hover:text-[#1e40af] transition-colors">
                 Actualités
@@ -263,10 +266,13 @@ const Accueil = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </a>
 
           {/* Carte Innovation */}
-          <div className="card bg-base-100 shadow-xl border-t-8 border-[#ff7f11] hover:shadow-2xl transition-all cursor-pointer group">
+          <a
+            href="/innovation"
+            className="card bg-base-100 shadow-xl border-t-8 border-[#ff7f11] hover:shadow-2xl transition-all cursor-pointer group"
+          >
             <div className="card-body">
               <h3 className="card-title text-2xl font-bold hover:text-[#ff7f11] transition-colors">
                 Innovation
@@ -281,10 +287,13 @@ const Accueil = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </a>
 
           {/* Carte Contact */}
-          <div className="card bg-base-100 shadow-xl border-t-8 border-accent hover:shadow-2xl transition-all cursor-pointer group">
+          <a
+            href="/contact"
+            className="card bg-base-100 shadow-xl border-t-8 border-accent hover:shadow-2xl transition-all cursor-pointer group"
+          >
             <div className="card-body">
               <h3 className="card-title text-2xl font-bold group-hover:text-accent transition-colors">
                 Communauté
@@ -299,10 +308,10 @@ const Accueil = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 

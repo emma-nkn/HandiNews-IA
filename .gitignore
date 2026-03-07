@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 texte.txt
+
+.env
+.env.local

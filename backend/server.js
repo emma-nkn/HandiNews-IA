@@ -2,6 +2,7 @@ import express from "express";
 import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
+import pool from "./base_donnee/connection.js";
 
 dotenv.config();
 
@@ -15,7 +16,9 @@ app.post("/api/contact", async (req, res) => {
   const { name, email, subject, message } = req.body;
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // Utilise SSL/TLS
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
@@ -25,7 +28,7 @@ app.post("/api/contact", async (req, res) => {
   const mailOptions = {
     from: email,
     to: process.env.EMAIL_USER,
-    subject: `🚀 Nouveau message : ${subject}`,
+    subject: `Nouveau message : ${subject}`,
     html: `
       <div style="font-family: sans-serif; padding: 20px; color: #333; border: 1px solid #eee; border-radius: 10px;">
         <h2 style="color: #1e40af;">Nouveau projet HandiNews</h2>
@@ -43,6 +46,19 @@ app.post("/api/contact", async (req, res) => {
     res.status(200).json({ message: "Email envoyé !" });
   } catch (error) {
     console.error("Erreur :", error);
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+});
+
+// Route GET pour récupérer les articles
+app.get("/api/articles", async (req, res) => {
+  try {
+    const result = await pool.query(
+      "SELECT * FROM articles ORDER BY created_at DESC",
+    );
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Erreur récupération articles :", error);
     res.status(500).json({ message: "Erreur serveur" });
   }
 });
