@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout";
 import Accueil from "./pages/Accueil";
 import Innovation from "./pages/Innovation";
 import Contact from "./pages/Contact";
+import Actualites from "./pages/Actualites";
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Accueil />} />
-        
-          <Route path="actualites" element={<div>COUCOU TEST</div>} />
+
+          <Route path="actualites" element={<Actualites />} />
           <Route path="innovation" element={<Innovation />} />
           <Route path="contact" element={<Contact />} />
         </Route>

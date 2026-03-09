@@ -12,33 +12,66 @@ import {
 const Partenaires = [
   {
     id: 1,
-    nom: "HandiLab Innovation",
-    categorie: "Recherche",
-    image: "/downloavisuel.jpg",
+    nom: "Cantoo",
+    categorie: "Technologique",
+    image: "/Cantoo-Logos-06-1-1024x519.png",
     description:
-      "Laboratoire dédié aux technologies d'assistance et à la domotique inclusive.",
-    logo: "/logos/handilab.png",
-    lien: "#",
+      "entreprise sociale et solidaire,  qui développe des outils d’aide technologique pour favoriser l’inclusion des élèves et apprenants à besoins éducatifs particuliers. ",
+    lien: "https://www.cantoo.fr/",
   },
   {
     id: 2,
-    nom: "Saint-Denis Connect",
-    categorie: "Numérique",
-    image: "/downloamental.jpg",
+    nom: "Tomo",
+    categorie: "Santé",
+    image: "/Tomo8.jpg",
     description:
-      "Accompagnement des citoyens dans l'accès aux services numériques de la ville.",
-    logo: "/logos/sd-connect.png",
-    lien: "#",
+      "Des solution permetant d’humaniser les parcours de vie, de soins et de réduire les ruptures de parcours en offrant un accès à un soutien empathique, validé et encadré.",
+    lien: "https://www.jointomo.com/",
   },
   {
     id: 3,
-    nom: "Inclusion Visuelle",
-    categorie: "Accessibilité",
-    image: "/downloamental.jpg",
+    nom: "Neutralit",
+    categorie: "Santé",
+    image: "/logo-neutralit.jpg",
     description:
-      "Spécialiste de l'audiodescription et du balisage sonore pour les espaces publics.",
-    logo: "/logos/visual.png",
-    lien: "#",
+      "Neutralit soulage la contrainte des aidants et des familles avec une personne ayant un trouble du handicap ou maladies neurodégénératives.",
+    lien: "https://www.neutralit.fr/",
+  },
+  {
+    id: 4,
+    nom: "Inclusion Conseil",
+    categorie: "innovation sociale",
+    image: "/inclusion_conseil.png",
+    description:
+      "Organisme de formation, avec une pédagogie basée sur une méthode de design sociale qui a aujourd'hui largement fait ses preuves.",
+    lien: "https://inclusionconseil.fr/",
+  },
+  {
+    id: 5,
+    nom: "Neutralit",
+    categorie: "Santé",
+    image: "/logo-neutralit.jpg",
+    description:
+      "Neutralit soulage la contrainte des aidants et des familles avec une personne ayant un trouble du handicap ou maladies neurodégénératives.",
+    lien: "https://www.neutralit.fr/",
+  },
+  {
+    id: 6,
+    nom: "Neutralit",
+    categorie: "Santé",
+    image: "/logo-neutralit.jpg",
+    description:
+      "Neutralit soulage la contrainte des aidants et des familles avec une personne ayant un trouble du handicap ou maladies neurodégénératives.",
+    lien: "https://www.neutralit.fr/",
+  },
+  {
+    id: 7,
+    nom: "Neutralit",
+    categorie: "Santé",
+    image: "/logo-neutralit.jpg",
+    description:
+      "Neutralit soulage la contrainte des aidants et des familles avec une personne ayant un trouble du handicap ou maladies neurodégénératives.",
+    lien: "https://www.neutralit.fr/",
   },
 ];
 
@@ -176,7 +209,7 @@ const Accueil = () => {
             <div className="max-w-xl">
               <h2 className="text-3xl font-black text-[#1e40af] leading-tight">
                 LES PARTENAIRES DU{" "}
-                <span className="text-[#ff7f11]">LABDAY</span>
+                <span className="text-[#ff7f11]">HANDILAB</span>
               </h2>
               <p className="text-slate-600 mt-2">
                 Ils soutiennent l'innovation inclusive et l'accessibilité au
@@ -203,32 +236,52 @@ const Accueil = () => {
               <ChevronRight size={24} />
             </button>
           </div>
-          <div className="carousel carousel-center w-full p-4 space-x-6 rounded-box">
+          <div className="carousel carousel-center w-full p-4 space-x-6 rounded-box bg-slate-50/50">
             {Partenaires.map((entreprise) => (
-              <div key={entreprise.id} className="carousel-item w-full md:w-90">
-                <div className="card bg-base-100 shadow-xl border border-slate-200">
-                  <figure className="px-6 pt-6 h-40 bg-white">
+              <div key={entreprise.id} className="carousel-item w-full md:w-89">
+                <div className="card bg-white shadow-xl border border-slate-200 flex flex-col h-full transition-transform hover:-translate-y-1 duration-300">
+                  {/* Figure : Conteneur d'image fixe pour l'alignement */}
+                  <figure className="px-6 pt-6 h-48 bg-white shrink-0">
                     <img
-                      src="/inno_handilab.jpg"
-                      className="w-full h-full bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 flex items-center justify-center"
-                      alt=""
+                      src={entreprise.image}
+                      alt={`Logo de ${entreprise.nom}`}
+                      className="w-full h-full object-contain rounded-xl border border-slate-50 p-2"
                     />
                   </figure>
-                  <div className="card-body">
-                    <div className="badge badge-secondary badge-outline text-xs uppercase font-bold">
-                      Innovation Tech
+
+                  <div className="card-body flex flex-col justify-between">
+                    <div>
+                      {/* Badge de catégorie */}
+                      <div className="badge border-[#ff7f11] text-[#ff7f11] badge-outline text-[10px] uppercase font-black px-3">
+                        {entreprise.categorie}
+                      </div>
+
+                      {/* Nom de l'entreprise */}
+                      <h3 className="card-title text-[#1e40af] text-xl font-black mt-3">
+                        {entreprise.nom}
+                      </h3>
+
+                      {/* Description avec limite de 3 lignes pour garder l'alignement */}
+                      <p className="text-sm text-slate-500 line-clamp-3 mt-2 leading-relaxed italic">
+                        "{entreprise.description}"
+                      </p>
                     </div>
-                    <h3 className="card-title text-[#1e40af] text-lg">
-                      Entreprise Partenaire
-                    </h3>
-                    <p className="text-sm text-slate-500 line-clamp-2">
-                      Expertise en solutions d'accessibilité numérique pour les
-                      services publics.
-                    </p>
-                    <div className="card-actions justify-end mt-4 pt-4 border-t border-slate-100">
-                      <button className="btn btn-ghost btn-sm gap-2 text-[#1e40af] lowercase font-normal italic">
-                        Voir le site <ExternalLink size={14} />
-                      </button>
+
+                    {/* Action : Lien dynamique */}
+                    <div className="card-actions justify-end mt-6 pt-4 border-t border-slate-100">
+                      <a
+                        href={entreprise.lien}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-ghost btn-sm gap-2 text-[#1e40af] font-bold normal-case hover:bg-blue-50 group"
+                        aria-label={`Visiter le site de ${entreprise.nom} (nouvelle fenêtre)`}
+                      >
+                        Voir le site{" "}
+                        <ExternalLink
+                          size={14}
+                          className="group-hover:translate-x-0.5 transition-transform"
+                        />
+                      </a>
                     </div>
                   </div>
                 </div>

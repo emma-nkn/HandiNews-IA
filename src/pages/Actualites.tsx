@@ -1,77 +1,97 @@
-import { useEffect, useState } from "react";
+import { ArticleData } from "../data/articles";
 
-// Définir le type d'un article
-interface Article {
-  id: number;
-  title: string;
-  content_original: string;
-  category: string;
-  source_name: string;
-  source_url: string;
-  published_at: string;
-  created_at: string;
-  ai_processed: boolean;
-}
-
-export default function Actualites() {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/articles")
-      .then((res) => res.json())
-      .then((data: Article[]) => setArticles(data))
-      .catch((err) => console.error("Erreur fetch articles :", err))
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="p-4 text-center text-gray-700">
-        Chargement des articles...
-      </div>
-    );
-  }
-
+const Actualites = () => {
   return (
-    <div className="p-4 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center">
-        Actualités HandiNews
+    <main
+      style={{
+        padding: "40px",
+        backgroundColor: "#f9f9f9",
+        minHeight: "100vh",
+      }}
+    >
+      <h1
+        style={{
+          textAlign: "center",
+          marginBottom: "40px",
+          fontSize: "2.5rem",
+        }}
+      >
+        Actualités
       </h1>
 
-      {articles.length === 0 ? (
-        <p className="text-center text-gray-600">
-          Aucun article disponible pour le moment.
-        </p>
-      ) : (
-        <div className="grid gap-6 md:grid-cols-2">
-          {articles.map((article) => (
-            <div
-              key={article.id}
-              className="border rounded-lg p-4 shadow hover:shadow-lg transition"
-            >
-              <h2 className="text-xl font-semibold mb-2">{article.title}</h2>
-              <p className="text-gray-700 mb-2">
-                {article.content_original.length > 200
-                  ? article.content_original.slice(0, 200) + "..."
-                  : article.content_original}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+          gap: "25px",
+          maxWidth: "1200px",
+          margin: "0 auto",
+        }}
+      >
+        {ArticleData.map((article) => (
+          <article
+            key={article.id}
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "12px",
+              boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+              overflow: "hidden",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <img
+              src={article.urlToImage}
+              alt={article.title}
+              style={{ width: "100%", height: "200px", objectFit: "cover" }}
+            />
+
+            <div style={{ padding: "20px", flexGrow: 1 }}>
+              <span
+                style={{
+                  color: "#007bff",
+                  fontSize: "0.8rem",
+                  fontWeight: "bold",
+                }}
+              >
+                {article.source.name}
+              </span>
+              <h2
+                style={{ fontSize: "1.25rem", margin: "10px 0", color: "#333" }}
+              >
+                {article.title}
+              </h2>
+              <p
+                style={{
+                  color: "#666",
+                  fontSize: "0.95rem",
+                  lineHeight: "1.5",
+                }}
+              >
+                {article.description}
               </p>
-              <p className="text-sm text-gray-500 mb-2">
-                Source : {article.source_name} | Publié le{" "}
-                {new Date(article.published_at).toLocaleDateString()}
-              </p>
+            </div>
+
+            <div style={{ padding: "20px", borderTop: "1px solid #eee" }}>
               <a
-                href={article.source_url}
+                href={article.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
+                style={{
+                  textDecoration: "none",
+                  color: "#333",
+                  fontWeight: "600",
+                  fontSize: "0.9rem",
+                }}
               >
-                Lire l'article
+                Lire l'article →
               </a>
             </div>
-          ))}
-        </div>
-      )}
-    </div>
+          </article>
+        ))}
+      </div>
+    </main>
   );
-}
+};
+
+export default Actualites;
