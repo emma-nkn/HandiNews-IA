@@ -7,7 +7,7 @@ export interface Article {
   source: {
     name: string;
   };
-  publishedAt?: string; // Optionnel pour l'instant
+  publishedAt?: string;
 }
 
 export const ArticleData: Article[] = [
