@@ -23,7 +23,7 @@ const SocialBar = () => {
           key={label}
           href="#"
           aria-label={`Suivez-nous sur ${label}`}
-          className="btn btn-circle btn-xs border-none text-white bg-[#ff7f11] hover:bg-[#e66e00] transition-colors"
+          className="btn btn-circle btn-xs border-none text-white bg-[#FF8205] hover:bg-[#FF8205] transition-colors"
         >
           <Icon size={14} aria-hidden="true" />
         </a>
@@ -60,7 +60,7 @@ const Navbar = () => {
       </div>
 
       {/* --- NAVIGATION --- */}
-      <div className="navbar bg-[#1e40af] text-white px-4 lg:px-20 relative">
+      <div className="navbar bg-[#0E297C] text-white px-4 lg:px-20 relative">
         <div className="navbar-start">
           {/* MENU BURGER  */}
           <div className="dropdown lg:hidden">
@@ -78,7 +78,7 @@ const Navbar = () => {
             className="text-2xl sm:text-4xl font-light tracking-tight italic"
             aria-label="HandiNews - Accueil"
           >
-            Handi<strong className="font-black text-[#f57c00]">News</strong>
+            Handi<strong className="font-black text-[#FF8205]">News</strong>
           </Link>
         </div>
 
@@ -89,7 +89,7 @@ const Navbar = () => {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className="hover:bg-white/10 active:bg-[#e66e00]"
+                  className="hover:bg-white/10 active:bg-[#FF8205]"
                 >
                   {link.name}
                 </Link>
@@ -101,7 +101,7 @@ const Navbar = () => {
         <div className="navbar-end">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="btn bg-[#ff7f11] hover:bg-[#e66e00] border-none btn-xs sm:btn-sm rounded-full font-bold text-[#1e40af] shadow-lg"
+            className="btn bg-[#FF8205] hover:bg-[#FF8205] border-none btn-xs sm:btn-sm rounded-full font-bold text-[#0E297C] shadow-lg"
           >
             NEWSLETTER
           </button>
@@ -109,7 +109,7 @@ const Navbar = () => {
 
         {/* MENU MOBILE (DROPDOWN) */}
         {isMobileMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-[#1e40af] border-t border-white/10 lg:hidden animate-in slide-in-from-top duration-300">
+          <div className="absolute top-full left-0 w-full bg-[#0E297C] border-t border-white/10 lg:hidden animate-in slide-in-from-top duration-300">
             <ul className="menu p-4 font-bold">
               {navLinks.map((link) => (
                 <li key={link.path} onClick={() => setIsMobileMenuOpen(false)}>
@@ -125,7 +125,7 @@ const Navbar = () => {
 
       {/* --- MODALE NEWSLETTER --- */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#1e40af]/40 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#0E297C]/40 backdrop-blur-sm">
           <div
             role="dialog"
             aria-modal="true"
@@ -133,16 +133,16 @@ const Navbar = () => {
           >
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 text-slate-400 hover:text-[#ff7f11]"
+              className="absolute top-6 right-6 text-slate-400 hover:text-[#FF8205]"
               aria-label="Fermer la fenêtre"
             >
               <X size={24} />
             </button>
             <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-[#ff7f11]/10 rounded-full flex items-center justify-center mx-auto text-[#ff7f11]">
+              <div className="w-16 h-16 bg-[#FF8205]/10 rounded-full flex items-center justify-center mx-auto text-[#FF8205]">
                 <Mail size={32} />
               </div>
-              <h3 className="text-2xl font-black text-[#1e40af] uppercase">
+              <h3 className="text-2xl font-black text-[#0E297C] uppercase">
                 Restez connecté
               </h3>
               <p className="text-slate-500 text-sm leading-relaxed">
@@ -157,11 +157,11 @@ const Navbar = () => {
                   type="email"
                   required
                   placeholder="votre@email.com"
-                  className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-[#ff7f11] outline-none text-[#1e40af]"
+                  className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-[#ff7f11] outline-none text-[#0E297C]"
                 />
                 <button
                   type="submit"
-                  className="w-full py-4 bg-[#ff7f11] text-[#1e40af] font-black rounded-2xl shadow-lg uppercase tracking-widest hover:scale-[1.02] transition-transform"
+                  className="w-full py-4 bg-[#ff7f11] text-[#0E297C] font-black rounded-2xl shadow-lg uppercase tracking-widest hover:scale-[1.02] transition-transform"
                 >
                   S'abonner
                 </button>

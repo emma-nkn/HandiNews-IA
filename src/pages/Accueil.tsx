@@ -120,10 +120,10 @@ const Accueil = () => {
       <section className="relative bg-[#1e40af] text-primary-content pt-32 pb-20 px-4 lg:px-20  overflow-hidden">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-22">
           <div className="flex-1 text-left z-10">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.1] mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.1] mb-6">
               TOUTE L'ACTUALITE <br />
               SUR
-              <span className="text-[#ff7f11] italic"> LE HANDICAP</span> <br />
+              <span className="text-[#FF8205] italic"> LE HANDICAP</span> <br />
               ET L'INNOVATION.
             </h1>
 
@@ -133,12 +133,12 @@ const Accueil = () => {
             </p>
 
             <div className="flex gap-4">
-              <button className="btn  bg-[#ff7f11] hover:bg-white hover:text-black border-transparent btn-lg text-white rounded-full shadow-xl">
+              <button className="btn  bg-[#FF8205] hover:bg-white hover:text-black border-transparent btn-lg text-white rounded-full shadow-xl">
                 Dernières Actus
               </button>
 
               <button
-                className="btn btn-outline btn-[#ff7f11]  btn-lg rounded-full"
+                className="btn btn-outline btn-[#FF8205]  btn-lg rounded-full"
                 onClick={inscription}
               >
                 S'inscrire
@@ -159,12 +159,12 @@ const Accueil = () => {
       {/*  SECTION APROPOS-  */}
       <section className="max-w-6xl mx-auto my-18 flex flex-col lg:flex-row items-center gap-12 ">
         <div className="flex-1 relative">
-          <div className="w-full h-80 bg-slate-200 rounded-3xl rotate-3 shadow-2xl flex items-center justify-center border-6 border-[#ff7f11] overflow-hidden">
+          <div className="w-full h-80 bg-slate-200 rounded-3xl rotate-3 shadow-2xl flex items-center justify-center border-6 border-[#FF8205] overflow-hidden">
             <img src="/inno_handilab.jpg" alt="HandiNews" className="w-xl" />
           </div>
         </div>
         <div className="max-w-xl">
-          <span className="text-sm text-[#ff7f11] underline italic">
+          <span className="text-sm text-[#FF8205] underline italic">
             HANDINEWS
           </span>
           <h2 className="text-2xl lg:text-3xl text-[#1e40af] font-bold leading-none mb-6">
@@ -189,7 +189,7 @@ const Accueil = () => {
             ].map((item, index) => (
               <li key={index} className="flex items-center gap-3 group">
                 <CheckCircle2
-                  className="text-[#ff7f11] group-hover:scale-110 transition-transform"
+                  className="text-[#FF8205] group-hover:scale-110 transition-transform"
                   size={20}
                   strokeWidth={3}
                 />
@@ -198,7 +198,7 @@ const Accueil = () => {
             ))}
           </ul>
           <div className="mt-8">
-            <button className="btn btn-outline  text-[#ff7f11] hover:bg-[#ff7f11] hover:text-white hover:border-[#ff7f11] rounded-full px-8 group">
+            <button className="btn btn-outline  text-[#FF8205] hover:bg-[#FF8205] hover:text-white hover:border-[#FF8205] rounded-full px-8 group">
               En savoir plus
               <ArrowRight
                 size={18}
@@ -223,14 +223,14 @@ const Accueil = () => {
             <div className="stat-desc">Depuis le début de l'année</div>
           </div>
           <div className="stat w-sm">
-            <div className="stat-figure text-[#ff7f11]">
+            <div className="stat-figure text-[#FF8205]">
               <Lightbulb size={52} />
             </div>
             <div className="stat-title font-bold text-lg text-black">
               Innovations
             </div>
-            <div className="stat-value text-[#ff7f11]">12</div>
-            <div className="stat-desc text-[#ff7f11]">
+            <div className="stat-value text-[#BD5800]">12</div>
+            <div className="stat-desc text-[#BD5800]">
               Projets à Saint-Denis
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { videosData } from "../data/videos";
+import { Link } from "react-router-dom";
 import "../styles/innovation.css";
 
 import {
@@ -295,14 +296,12 @@ const Innovation = () => {
                 </span>
               </div>
 
-              {/* DIV DEUX COLONNES : DATE ET CATÉGORIE */}
               <div className="mt-auto pt-4  flex items-center justify-between">
                 <div className="flex items-center gap-1.5 text-slate-400">
                   <Calendar size={14} />
                   <span className="text-[11px] font-medium">{video.date}</span>
                 </div>
 
-                {/* CATÉGORIE DESIGNÉE AVEC BG */}
                 <span className="px-3 py-1 bg-[#ff7f11] text-white text-[15px] font-bold tracking-wider  ring-1 ring-[#ff7f11]/20">
                   {video.category}
                 </span>
@@ -402,13 +401,18 @@ const Innovation = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-4 bg-[#ff7f11] hover:bg-[#e66e00] text-white font-bold rounded-full transition-all shadow-lg hover:shadow-[#ff7f11]/40 flex items-center gap-2">
+            <button className="px-8 py-4 bg-[#ff7f11] hover:bg-[#e66e00] text-white font-bold rounded-full transition-all shadow-lg hover:shadow-[#ff7f11]/40 flex items-center gap-2 cursor-pointer">
               Rejoindre
               <ArrowRight size={20} />
             </button>
 
-            <button className="btn-outline px-8 py-4 bg-white/10 hover:bg-white hover:text-[#e66e00] backdrop-blur-md border border-black text-black font-bold rounded-full transition-all">
-              Contactez-nous
+            <button className="btn-outline px-8 py-4 bg-white/10 hover:bg-white hover:text-[#e66e00] backdrop-blur-md border border-black text-black font-bold rounded-full transition-all cursor-pointer">
+              <Link
+                to="/contact"
+                className="text-[#ff7f11] font-bold hover:underline"
+              >
+                Contactez-nous
+              </Link>
             </button>
           </div>
         </div>
