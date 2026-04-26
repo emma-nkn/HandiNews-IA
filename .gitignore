@@ -25,5 +25,7 @@ dist-ssr
 
 texte.txt
 
+emailjs.env
+
 .env
 .env.local

@@ -15,9 +15,9 @@ const Footer = () => {
   const inscription = () => alert("Redirection contact...");
 
   return (
-    <footer className="w-full">
+    <footer className="w-full mt-10">
       {/* --- PREMIÈRE BANDE : BLEU INCLUSIF --- */}
-      <div className="bg-[#1e40af] text-white pt-12 pb-8 px-4 lg:px-20">
+      <div className="bg-[#0E297C] text-white pt-12 pb-8 px-4 lg:px-20">
         <div className="max-w-7xl mx-auto">
           {/* Haut du footer : Appel à l'action */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">

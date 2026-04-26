@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS articles (
     content_simplified TEXT,
     category VARCHAR(100),
     source_name VARCHAR(100),
-    source_url VARCHAR(500) UNIQUE NOT NULL,
+    source_url VARCHAR(500) UNIQUE NOT NULL, 
     published_at TIMESTAMP,
     ai_processed BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

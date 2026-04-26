@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin, Send, ChevronRight, Home } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,25 +21,16 @@ const Contact = () => {
     e.preventDefault();
     setStatus("sending");
 
-    try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
-      if (response.ok) {
-        setStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "Projet Innovation",
-          message: "",
-        });
-      } else {
-        setStatus("error");
-      }
+    try {
+      await emailjs.send(serviceID, templateID, formData, publicKey);
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
+      console.error("Erreur d'envoi :", error);
       setStatus("error");
     }
   };

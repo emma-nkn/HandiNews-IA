@@ -117,7 +117,7 @@ const Accueil = () => {
   return (
     <main className="flex flex-col w-full">
       {/* SECTION HERO -*/}
-      <section className="relative bg-[#1e40af] text-primary-content pt-32 pb-20 px-4 lg:px-20  overflow-hidden">
+      <section className="relative bg-[#0E297C] text-primary-content pt-32 pb-20 px-4 lg:px-20  overflow-hidden">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-22">
           <div className="flex-1 text-left z-10">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.1] mb-6">
@@ -167,7 +167,7 @@ const Accueil = () => {
           <span className="text-sm text-[#FF8205] underline italic">
             HANDINEWS
           </span>
-          <h2 className="text-2xl lg:text-3xl text-[#1e40af] font-bold leading-none mb-6">
+          <h2 className="text-2xl lg:text-3xl text-[#0E297C] font-bold leading-none mb-6">
             UNE PLATEFORME DEDIEE A L'INFORMATION SUR LE HANDICAP
           </h2>
           <p className=" max-w-xl text-sm  text-justify">
@@ -219,7 +219,7 @@ const Accueil = () => {
             <div className="stat-title font-bold text-lg text-black">
               Articles publiés
             </div>
-            <div className="stat-value text-[#1e40af]">124</div>
+            <div className="stat-value text-[#0E297C]">124</div>
             <div className="stat-desc">Depuis le début de l'année</div>
           </div>
           <div className="stat w-sm">
@@ -342,7 +342,7 @@ const Accueil = () => {
         </div>
       </section>
 
-      <section className="py-10 px-4 lg:px-20 max-w-7xl mx-auto">
+      <section className="lg:px-20 max-w-7xl mx-auto">
         <h2 className="text-3xl font-black mb-12 text-center">
           NOS{" "}
           <span className="text-[#ff7f11] underline decoration-4 underline-offset-8">

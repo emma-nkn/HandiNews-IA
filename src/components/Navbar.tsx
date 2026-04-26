@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FocusLock from "react-focus-lock";
 import {
   Instagram,
   Facebook,
@@ -44,11 +45,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 shadow-md">
+    <nav
+      aria-label="Menu principal"
+      className="fixed top-0 w-full z-50 shadow-md"
+    >
       <div className="bg-white py-2 px-4 lg:px-20 flex justify-between items-center border-b border-base-200">
         <div className="flex items-center gap-4">
           <img
-            src="/logopview.png"
+            src="/logopview2.png"
             alt="Logo Saint-Denis"
             className="h-6 sm:h-8 w-auto"
           />
@@ -68,6 +72,7 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="btn btn-ghost btn-circle"
               aria-label="Ouvrir le menu de navigation"
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -126,48 +131,64 @@ const Navbar = () => {
       {/* --- MODALE NEWSLETTER --- */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#0E297C]/40 backdrop-blur-sm">
-          <div
-            role="dialog"
-            aria-modal="true"
-            className="bg-white w-full max-w-md rounded-[2.5rem] p-6 sm:p-8 shadow-2xl relative animate-in zoom-in duration-300"
-          >
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-6 right-6 text-slate-400 hover:text-[#FF8205]"
-              aria-label="Fermer la fenêtre"
+          {/* Le FocusLock doit entourer l'élément de dialogue */}
+          <FocusLock returnFocus>
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="newsletter-title"
+              className="bg-white w-full max-w-md rounded-[2.5rem] p-6 sm:p-8 shadow-2xl relative animate-in zoom-in duration-300"
             >
-              <X size={24} />
-            </button>
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-[#FF8205]/10 rounded-full flex items-center justify-center mx-auto text-[#FF8205]">
-                <Mail size={32} />
-              </div>
-              <h3 className="text-2xl font-black text-[#0E297C] uppercase">
-                Restez connecté
-              </h3>
-              <p className="text-slate-500 text-sm leading-relaxed">
-                Recevez une fois par mois l'actualité de la commune sur le
-                handicap.
-              </p>
-              <form
-                className="space-y-3 pt-4"
-                onSubmit={(e) => e.preventDefault()}
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-6 right-6 text-slate-400 hover:text-[#FF8205]"
+                aria-label="Fermer la fenêtre"
               >
-                <input
-                  type="email"
-                  required
-                  placeholder="votre@email.com"
-                  className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-[#ff7f11] outline-none text-[#0E297C]"
-                />
-                <button
-                  type="submit"
-                  className="w-full py-4 bg-[#ff7f11] text-[#0E297C] font-black rounded-2xl shadow-lg uppercase tracking-widest hover:scale-[1.02] transition-transform"
+                <X size={24} />
+              </button>
+
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 bg-[#FF8205]/10 rounded-full flex items-center justify-center mx-auto text-[#FF8205]">
+                  <Mail size={32} aria-hidden="true" />
+                </div>
+
+                {/* L'id ici doit correspondre à aria-labelledby plus haut */}
+                <h3
+                  id="newsletter-title"
+                  className="text-2xl font-black text-[#0E297C] uppercase"
                 >
-                  S'abonner
-                </button>
-              </form>
+                  Restez connecté
+                </h3>
+
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  Recevez une fois par mois l'actualité de la commune sur le
+                  handicap.
+                </p>
+
+                <form
+                  className="space-y-3 pt-4"
+                  onSubmit={(e) => e.preventDefault()}
+                >
+                  <label htmlFor="email-newsletter" className="sr-only">
+                    Votre adresse e-mail
+                  </label>
+                  <input
+                    id="email-newsletter"
+                    type="email"
+                    required
+                    placeholder="votre@email.com"
+                    className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-transparent focus:border-[#FF8205] outline-none text-[#0E297C]"
+                  />
+                  <button
+                    type="submit"
+                    className="w-full py-4 bg-[#FF8205] text-[#0E297C] font-black rounded-2xl shadow-lg uppercase tracking-widest hover:scale-[1.02] transition-transform"
+                  >
+                    S'abonner
+                  </button>
+                </form>
+              </div>
             </div>
-          </div>
+          </FocusLock>
         </div>
       )}
     </nav>
